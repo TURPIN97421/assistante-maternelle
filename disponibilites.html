@@ -1,0 +1,137 @@
+# Créons un fichier HTML pour la page disponibilites.html avec un planning du lundi au vendredi
+
+html_content = """<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Disponibilités - C'lines DEURVEILHER</title>
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #fff8f0;
+      margin: 0;
+      padding: 0;
+    }
+    header, footer {
+      background-color: #ffd6cc;
+      text-align: center;
+      padding: 1rem;
+    }
+    nav ul {
+      list-style: none;
+      background-color: #ffe5d4;
+      padding: 10px;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+    }
+    nav a {
+      text-decoration: none;
+      color: #333;
+      font-weight: bold;
+    }
+    nav a.active {
+      color: #f08080;
+    }
+    main {
+      padding: 2rem;
+    }
+    h2 {
+      text-align: center;
+      color: #f08080;
+    }
+    table {
+      width: 80%;
+      margin: auto;
+      border-collapse: collapse;
+      background-color: #fff;
+    }
+    th, td {
+      border: 1px solid #ddd;
+      padding: 12px;
+      text-align: center;
+    }
+    th {
+      background-color: #ffe5d4;
+      color: #333;
+    }
+    td.dispo {
+      background-color: #d4f8d4;
+    }
+    td.occupe {
+      background-color: #f8d4d4;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Disponibilités</h1>
+  </header>
+
+  <nav>
+    <ul>
+      <li><a href="index.html">Accueil</a></li>
+      <li><a href="about.html">À propos</a></li>
+      <li><a href="services.html">Mon accueil</a></li>
+      <li><a href="tarifs.html">Tarifs</a></li>
+      <li><a href="disponibilites.html" class="active">Disponibilités</a></li>
+      <li><a href="galerie.html">Galerie</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <h2>Planning hebdomadaire</h2>
+    <p style="text-align:center;">Heures d'ouverture : <strong>07h00 à 18h00</strong> du lundi au vendredi</p>
+    <table>
+      <thead>
+        <tr>
+          <th>Jour</th>
+          <th>07h00 - 18h00</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Lundi</td>
+          <td class="dispo">Places disponibles</td>
+        </tr>
+        <tr>
+          <td>Mardi</td>
+          <td class="occupe">Complet</td>
+        </tr>
+        <tr>
+          <td>Mercredi</td>
+          <td class="dispo">1 place disponible</td>
+        </tr>
+        <tr>
+          <td>Jeudi</td>
+          <td class="dispo">2 places disponibles</td>
+        </tr>
+        <tr>
+          <td>Vendredi</td>
+          <td class="dispo">Places disponibles</td>
+        </tr>
+      </tbody>
+    </table>
+  </main>
+
+  <footer>
+    <p>© 2025 C'lines DEURVEILHER - Assistante maternelle agréée</p>
+  </footer>
+</body>
+</html>
+"""
+
+# Chemin de sauvegarde
+file_path = Path("/mnt/data/assistante-maternelle-site/disponibilites.html")
+file_path.write_text(html_content, encoding="utf-8")
+
+# Créer une archive ZIP contenant le fichier
+from zipfile import ZipFile
+
+zip_path = "/mnt/data/disponibilites-page.zip"
+with ZipFile(zip_path, "w") as zipf:
+    zipf.write(file_path, arcname="disponibilites.html")
+
+zip_path
