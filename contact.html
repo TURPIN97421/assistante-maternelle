@@ -1,98 +1,21 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8" />
-    <title>Contact - C'lines DEURVEILHER</title>
-    <link rel="stylesheet" href="css/style.css" />
-    <style>
-        main {
-            max-width: 600px;
-            margin: 20px auto;
-            font-family: Arial, sans-serif;
-        }
-        form {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
-        label {
-            font-weight: bold;
-        }
-        input[type="text"],
-        input[type="email"],
-        textarea {
-            padding: 8px;
-            font-size: 1em;
-            border-radius: 5px;
-            border: 1px solid #ccc;
-            resize: vertical;
-        }
-        textarea {
-            min-height: 100px;
-        }
-        button {
-            width: 150px;
-            padding: 10px;
-            background-color: #f0a500;
-            color: white;
-            font-weight: bold;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            align-self: flex-start;
-        }
-        button:hover {
-            background-color: #cf8500;
-        }
-        .contact-info {
-            margin-top: 30px;
-            background: #f9f9f9;
-            padding: 15px;
-            border-radius: 8px;
-        }
-    </style>
-</head>
-<body>
-    <header>
-        <h1>Contact</h1>
-    </header>
-    <nav>
-        <ul>
-            <li><a href="index.html">Accueil</a></li>
-            <li><a href="about.html">À propos</a></li>
-            <li><a href="services.html">Mon accueil</a></li>
-            <li><a href="tarifs.html">Tarifs</a></li>
-            <li><a href="disponibilites.html">Disponibilités</a></li>
-            <li><a href="galerie.html">Galerie</a></li>
-            <li><a href="contact.html" class="active">Contact</a></li>
-        </ul>
-    </nav>
-    <main>
-        <section>
-            <h2>Formulaire de contact</h2>
-            <form action="mailto:deurveilher@gmail.com" method="post" enctype="text/plain">
-                <label for="name">Nom :</label>
-                <input type="text" id="name" name="name" required />
+<h2>Contactez-moi</h2>
+<form action="https://formsubmit.co/emy97421@gmail.com" method="POST">
+  <label for="name">Nom :</label><br>
+  <input type="text" id="name" name="name" required><br><br>
 
-                <label for="email">Email :</label>
-                <input type="email" id="email" name="email" required />
+  <label for="email">Email :</label><br>
+  <input type="email" id="email" name="email" required><br><br>
 
-                <label for="message">Message :</label>
-                <textarea id="message" name="message" required></textarea>
+  <label for="message">Message :</label><br>
+  <textarea id="message" name="message" rows="5" required></textarea><br><br>
 
-                <button type="submit">Envoyer</button>
-            </form>
-        </section>
+  <!-- Empêche le captcha -->
+  <input type="hidden" name="_captcha" value="false">
 
-        <section class="contact-info">
-            <h2>Mes coordonnées</h2>
-            <p><strong>Email :</strong> deurveilher@gmail.com</p>
-            <p><strong>Téléphone :</strong> 06 92 71 23 91</p>
-            <p><strong>Adresse :</strong> 20 B Chemin des Myosotis, 97421 La Rivière Saint-Louis</p>
-        </section>
-    </main>
-    <footer>
-        <p>© 2025 C'lines DEURVEILHER - Assistante maternelle agréée</p>
-    </footer>
-</body>
-</html>
+  <!-- Redirection après envoi -->
+  <input type="hidden" name="_next" value="https://turpin97421.github.io/assistante-maternelle/merci.html">
+
+  <button type="submit" style="background-color:#f08080; color:white; border:none; padding:10px 20px; border-radius:8px; cursor:pointer;">
+    Envoyer
+  </button>
+</form>
