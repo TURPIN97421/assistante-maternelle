@@ -1,69 +1,94 @@
-<!DOCTYPE html>
-<html lang="fr">
 <head>
-    <meta charset="UTF-8" />
-    <title>Disponibilités - C'lines DEURVEILHER</title>
-    <link rel="stylesheet" href="css/style.css" />
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const calendar = document.getElementById('calendar');
-            const today = new Date();
-            const daysToShow = 30;
-            const weekDays = ['Lun', 'Mar', 'Mer', 'Jeu', 'Ven',];
+  <meta charset="UTF-8" />
+  <title>Disponibilités - C'lines DEURVEILHER</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    /* Styles pour le calendrier */
+    #calendar {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 5px;
+      max-width: 300px;
+      margin: 20px auto;
+      font-family: Arial, sans-serif;
+    }
+    #calendar .day,
+    #calendar .date {
+      padding: 8px;
+      text-align: center;
+      border-radius: 4px;
+      font-weight: bold;
+    }
+    #calendar .day {
+      background-color: #f0a500;
+      color: white;
+    }
+    #calendar .available {
+      background-color: #6fcf97;
+      color: #064820;
+      cursor: default;
+    }
+    #calendar .unavailable {
+      background-color: #eb5757;
+      color: white;
+      cursor: default;
+    }
+    #legend {
+      max-width: 300px;
+      margin: 0 auto 20px;
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+    }
+    #legend div {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      font-weight: bold;
+    }
+    #legend .available-box {
+      width: 20px;
+      height: 20px;
+      background-color: #6fcf97;
+      border-radius: 4px;
+    }
+    #legend .unavailable-box {
+      width: 20px;
+      height: 20px;
+      background-color: #eb5757;
+      border-radius: 4px;
+    }
+  </style>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const calendar = document.getElementById('calendar');
+      const today = new Date();
+      const daysToShow = 30;
+      // Jours de la semaine du lundi au vendredi
+      const weekDays = ['Lun', 'Mar', 'Mer', 'Jeu', 'Ven'];
 
-            // Affichage des jours de la semaine
-            weekDays.forEach(day => {
-                const dayDiv = document.createElement('div');
-                dayDiv.className = 'day';
-                dayDiv.textContent = day;
-                calendar.appendChild(dayDiv);
-            });
+      // Afficher les jours de la semaine (en-tête)
+      weekDays.forEach(day => {
+        const dayDiv = document.createElement('div');
+        dayDiv.className = 'day';
+        dayDiv.textContent = day;
+        calendar.appendChild(dayDiv);
+      });
 
-            // Générer disponibilités aléatoires (vert = dispo, rouge = occupé)
-            for(let i=0; i<daysToShow; i++) {
-                const date = new Date(today);
-                date.setDate(today.getDate() + i);
-                const dayNum = date.getDate();
+      // Fonction pour vérifier si un jour est un jour ouvré (lun-vendredi)
+      function isWeekday(date) {
+        const day = date.getDay(); // 0=dim,1=lun,...6=sam
+        return day >= 1 && day <= 5;
+      }
 
-                const dayDiv = document.createElement('div');
-                dayDiv.textContent = dayNum;
+      let displayedDays = 0;
+      let i = 0;
 
-                // Dispo aléatoire
-                if(Math.random() > 0.3) {
-                    dayDiv.className = 'available';
-                    dayDiv.title = 'Disponible';
-                } else {
-                    dayDiv.className = 'unavailable';
-                    dayDiv.title = 'Non disponible';
-                }
-                calendar.appendChild(dayDiv);
-            }
-        });
-    </script>
-</head>
-<body>
-    <header>
-        <h1>Disponibilités</h1>
-    </header>
-    <nav>
-        <ul>
-            <li><a href="index.html">Accueil</a></li>
-            <li><a href="about.html">À propos</a></li>
-            <li><a href="services.html">Mon accueil</a></li>
-            <li><a href="tarifs.html">Tarifs</a></li>
-            <li><a href="disponibilites.html" class="active">Disponibilités</a></li>
-            <li><a href="galerie.html">Galerie</a></li>
-            <li><a href="contact.html">Contact</a></li>
-        </ul>
-    </nav>
-    <main>
-        <section>
-            <div id="calendar" class="calendar"></div>
-            <p><small>Les cases vertes indiquent les jours disponibles, les rouges les jours indisponibles.</small></p>
-        </section>
-    </main>
-    <footer>
-        <p>© 2025 C'lines DEURVEILHER - Assistante maternelle agréée</p>
-    </footer>
-</body>
-</html>
+      while (displayedDays < daysToShow) {
+        const date = new Date(today);
+        date.setDate(today.getDate() + i);
+        i++;
+
+        if (!isWeekday(date)) {
+          // Si samedi ou dimanche, on saute la c
