@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8" />
+    <title>Disponibilités - C'lines DEURVEILHER</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const calendar = document.getElementById('calendar');
+            const today = new Date();
+            const daysToShow = 30;
+            const weekDays = ['Dim', 'Lun', 'Mar', 'Mer', 'Jeu', 'Ven', 'Sam'];
+
+            // Affichage des jours de la semaine
+            weekDays.forEach(day => {
+                const dayDiv = document.createElement('div');
+                dayDiv.className = 'day';
+                dayDiv.textContent = day;
+                calendar.appendChild(dayDiv);
+            });
+
+            // Générer disponibilités aléatoires (vert = dispo, rouge = occupé)
+            for(let i=0; i<daysToShow; i++) {
+                const date = new Date(today);
+                date.setDate(today.getDate() + i);
+                const dayNum = date.getDate();
+
+                const dayDiv = document.createElement('div');
+                dayDiv.textContent = dayNum;
+
+                // Dispo aléatoire
+                if(Math.random() > 0.3) {
+                    dayDiv.className = 'available';
+                    dayDiv.title = 'Disponible';
+                } else {
+                    dayDiv.className = 'unavailable';
+                    dayDiv.title = 'Non disponible';
+                }
+                calendar.appendChild(dayDiv);
+            }
+        });
+    </script>
+</head>
+<body>
+    <header>
+        <h1>Disponibilités</h1>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="index.html">Accueil</a></li>
+            <li><a href="about.html">À propos</a></li>
+            <li><a href="services.html">Mon accueil</a></li>
+            <li><a href="tarifs.html">Tarifs</a></li>
+            <li><a href="disponibilites.html" class="active">Disponibilités</a></li>
+            <li><a href="galerie.html">Galerie</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+    <main>
+        <section>
+            <div id="calendar" class="calendar"></div>
+            <p><small>Les cases vertes indiquent les jours disponibles, les rouges les jours indisponibles.</small></p>
+        </section>
+    </main>
+    <footer>
+        <p>© 2025 C'lines DEURVEILHER - Assistante maternelle agréée</p>
+    </footer>
+</body>
+</html>
