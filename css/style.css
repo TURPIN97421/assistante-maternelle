@@ -1,0 +1,134 @@
+/* style.css - pour toutes les pages */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #fffaf2;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #fddde6;
+    padding: 20px;
+    text-align: center;
+}
+
+nav ul {
+    background-color: #fde2e4;
+    list-style-type: none;
+    padding: 10px;
+    margin: 0;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+nav ul li {
+    margin: 5px 15px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #444;
+    font-weight: 600;
+    font-size: 1.1em;
+    padding: 6px 10px;
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+}
+
+nav ul li a:hover {
+    background-color: #f9b5d3;
+    color: #fff;
+}
+
+main {
+    padding: 20px;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+footer {
+    background-color: #fddde6;
+    text-align: center;
+    padding: 10px;
+    margin-top: 40px;
+    font-size: 0.9em;
+    color: #555;
+}
+
+h1, h2 {
+    color: #b93f6a;
+}
+
+section {
+    margin-bottom: 30px;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    nav ul {
+        flex-direction: column;
+        padding: 0;
+    }
+    nav ul li {
+        margin: 8px 0;
+    }
+}
+
+/* Styles spécifiques pour la galerie */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill,minmax(150px,1fr));
+    gap: 15px;
+}
+
+.gallery-grid img {
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.gallery-grid img:hover {
+    transform: scale(1.05);
+}
+
+/* Calendrier simple */
+.calendar {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 5px;
+    text-align: center;
+}
+
+.calendar div {
+    padding: 8px;
+    border-radius: 5px;
+    background-color: #fde2e4;
+    font-weight: bold;
+}
+
+.calendar .day {
+    background-color: #f9b5d3;
+    color: #b93f6a;
+}
+
+.available {
+    background-color: #d3f9d8;
+    color: #2d7a2d;
+    font-weight: 600;
+    cursor: pointer;
+    border: 1px solid #2d7a2d;
+    border-radius: 5px;
+}
+
+.unavailable {
+    background-color: #f8d7da;
+    color: #721c24;
+    cursor: not-allowed;
+    border: 1px solid #721c24;
+    border-radius: 5px;
+}
