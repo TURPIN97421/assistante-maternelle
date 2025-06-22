@@ -1,34 +1,120 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <title>C'lines DEURVEILHER - Assistante Maternelle Agréée</title>
-    <link rel="stylesheet" href="css/style.css">
+  <meta charset="UTF-8">
+  <title>Accueil - C'lines DEURVEILHER</title>
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    body {
+      font-family: "Times New Roman", Times, serif;
+      background-color: #fff8f0;
+      margin: 0;
+      padding: 0;
+    }
+    header, footer {
+      background-color: #ffd6cc;
+      text-align: center;
+      padding: 1rem;
+    }
+    nav ul {
+      list-style: none;
+      background-color: #ffe5d4;
+      padding: 10px;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+    }
+    nav a {
+      text-decoration: none;
+      color: #333;
+      font-weight: bold;
+    }
+    nav a.active {
+      color: #f08080;
+    }
+    main {
+      padding: 2rem;
+    }
+    section.preview {
+      padding: 1.5rem;
+      background: #fff2e6;
+      margin: 1rem auto;
+      border-radius: 20px;
+      box-shadow: 0 0 10px #ffd6cc;
+      width: 80%;
+      text-align: center;
+    }
+    .galerie-mini img {
+      width: 120px;
+      margin: 0 10px;
+      border-radius: 10px;
+    }
+    .btn {
+      display: inline-block;
+      margin-top: 10px;
+      background-color: #f08080;
+      color: white;
+      padding: 8px 16px;
+      border-radius: 12px;
+      text-decoration: none;
+    }
+  </style>
 </head>
 <body>
-    <header>
-        <h1>Bienvenue chez Tatie C'lines</h1>
-        <p>Assistante maternelle agréée à La Rivière Saint-Louis</p>
-    </header>
-    <nav>
-        <ul>
-            <li><a href="index.html">Accueil</a></li>
-            <li><a href="about.html">À propos</a></li>
-            <li><a href="services.html">Mon accueil</a></li>
-            <li><a href="tarifs.html">Tarifs</a></li>
-            <li><a href="disponibilites.html">Disponibilités</a></li>
-            <li><a href="galerie.html">Galerie</a></li>
-            <li><a href="contact.html">Contact</a></li>
-        </ul>
-    </nav>
-    <main>
-        <section>
-            <h2>Un accueil bienveillant pour vos enfants</h2>
-            <p>Maman de deux enfants, je suis une personne patiente et attentive au bien-être des petits. J’accueille jusqu’à 4 enfants dans un cadre chaleureux et sécurisé.</p>
-        </section>
-    </main>
-    <footer>
-        <p>© 2025 C'lines DEURVEILHER - Assistante maternelle agréée</p>
-    </footer>
+  <header>
+    <h1>Bienvenue chez C'lines DEURVEILHER</h1>
+    <p>Assistante maternelle agréée à La Rivière Saint-Louis</p>
+  </header>
+
+  <nav>
+    <ul>
+      <li><a href="index.html" class="active">Accueil</a></li>
+      <li><a href="about.html">À propos</a></li>
+      <li><a href="services.html">Mon accueil</a></li>
+      <li><a href="tarifs.html">Tarifs</a></li>
+      <li><a href="disponibilites.html">Disponibilités</a></li>
+      <li><a href="galerie.html">Galerie</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <section class="preview">
+      <h2>À propos</h2>
+      <p>Je suis C'lines DEURVEILHER, assistante maternelle agréée et maman de 2 enfants. Patiente et à l'écoute, j’accueille vos enfants dans un environnement sécurisé et joyeux.</p>
+      <a href="about.html" class="btn">En savoir plus</a>
+    </section>
+
+    <section class="preview">
+      <h2>Tarifs</h2>
+      <p>À partir de 5€ de l'heure. Repas fournis sur demande.</p>
+      <a href="tarifs.html" class="btn">Voir les tarifs</a>
+    </section>
+
+    <section class="preview">
+      <h2>Disponibilités</h2>
+      <p>Ouverture du lundi au vendredi, de 07h00 à 18h00. Consultez les places disponibles.</p>
+      <a href="disponibilites.html" class="btn">Voir le planning</a>
+    </section>
+
+    <section class="preview">
+      <h2>Galerie</h2>
+      <div class="galerie-mini">
+        <img src="images/galerie/photo1.jpg" alt="Aperçu 1">
+        <img src="images/galerie/photo2.jpg" alt="Aperçu 2">
+      </div>
+      <a href="galerie.html" class="btn">Voir toutes les photos</a>
+    </section>
+
+    <section class="preview">
+      <h2>Contact</h2>
+      <p>Besoin de plus d’informations ou d’un rendez-vous ?</p>
+      <a href="contact.html" class="btn">Me contacter</a>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2025 C'lines DEURVEILHER - Assistante maternelle agréée</p>
+  </footer>
 </body>
 </html>
