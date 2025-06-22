@@ -1,3 +1,5 @@
+<!DOCTYPE html>
+<html lang="fr">
 <head>
   <meta charset="UTF-8" />
   <title>Disponibilités - C'lines DEURVEILHER</title>
@@ -16,79 +18,4 @@
     #calendar .date {
       padding: 8px;
       text-align: center;
-      border-radius: 4px;
-      font-weight: bold;
-    }
-    #calendar .day {
-      background-color: #f0a500;
-      color: white;
-    }
-    #calendar .available {
-      background-color: #6fcf97;
-      color: #064820;
-      cursor: default;
-    }
-    #calendar .unavailable {
-      background-color: #eb5757;
-      color: white;
-      cursor: default;
-    }
-    #legend {
-      max-width: 300px;
-      margin: 0 auto 20px;
-      font-family: Arial, sans-serif;
-      display: flex;
-      justify-content: center;
-      gap: 15px;
-    }
-    #legend div {
-      display: flex;
-      align-items: center;
-      gap: 5px;
-      font-weight: bold;
-    }
-    #legend .available-box {
-      width: 20px;
-      height: 20px;
-      background-color: #6fcf97;
-      border-radius: 4px;
-    }
-    #legend .unavailable-box {
-      width: 20px;
-      height: 20px;
-      background-color: #eb5757;
-      border-radius: 4px;
-    }
-  </style>
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const calendar = document.getElementById('calendar');
-      const today = new Date();
-      const daysToShow = 30;
-      // Jours de la semaine du lundi au vendredi
-      const weekDays = ['Lun', 'Mar', 'Mer', 'Jeu', 'Ven'];
-
-      // Afficher les jours de la semaine (en-tête)
-      weekDays.forEach(day => {
-        const dayDiv = document.createElement('div');
-        dayDiv.className = 'day';
-        dayDiv.textContent = day;
-        calendar.appendChild(dayDiv);
-      });
-
-      // Fonction pour vérifier si un jour est un jour ouvré (lun-vendredi)
-      function isWeekday(date) {
-        const day = date.getDay(); // 0=dim,1=lun,...6=sam
-        return day >= 1 && day <= 5;
-      }
-
-      let displayedDays = 0;
-      let i = 0;
-
-      while (displayedDays < daysToShow) {
-        const date = new Date(today);
-        date.setDate(today.getDate() + i);
-        i++;
-
-        if (!isWeekday(date)) {
-          // Si samedi ou dimanche, on saute la c
+      bo
