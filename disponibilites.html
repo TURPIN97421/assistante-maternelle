@@ -119,17 +119,3 @@
   </footer>
 </body>
 </html>
-"""
-
-# Chemin de sauvegarde
-file_path = Path("/mnt/data/assistante-maternelle-site/disponibilites.html")
-file_path.write_text(html_content, encoding="utf-8")
-
-# Créer une archive ZIP contenant le fichier
-from zipfile import ZipFile
-
-zip_path = "/mnt/data/disponibilites-page.zip"
-with ZipFile(zip_path, "w") as zipf:
-    zipf.write(file_path, arcname="disponibilites.html")
-
-zip_path
